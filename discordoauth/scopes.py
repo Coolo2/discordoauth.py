@@ -7,7 +7,7 @@ class Scopes():
     """
         Scopes - A list of Discord Oauth2 scopes
         
-        Supported scopes: bot, identify, guilds, connections, email, guilds_join, guilds_members_read
+        Supported scopes: bot, identify, guilds, connections, email, guilds_join, guilds_members_read, applications_commands
 
         Example:
         `discordoauth.Scopes(bot=True, identify=True)`

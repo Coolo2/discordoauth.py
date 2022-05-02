@@ -239,6 +239,18 @@ Joins a guild as the user.
 Versions
 -------------------
 
+v0.1.3
+~~~~~~~~~
+
+* Remove prints
+
+v0.1.2
+~~~~~~~~~
+
+* Added casting functions to objects 
+* Fixed scopes docstring
+* Renamed scopes in __init__
+
 v0.1.1
 ~~~~~~~~~
 

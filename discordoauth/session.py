@@ -22,6 +22,8 @@ class User():
 
     def __init__(self, data : dict):
 
+        self.raw = data
+
         self.id = int(data["id"])
         self.name : str = data["username"]
         self.avatar_url = f"https://cdn.discordapp.com/avatars/{self.id}/{data['avatar']}.webp?size=1024"
@@ -34,10 +36,17 @@ class User():
         if "email" in data:
             self.verified : bool = data["verified"]
             self.email : str = data["email"]
+    
+    def __str__(self):
+        return f"{self.name}#{self.discriminator}"
+    
+    def __dict__(self):
+        return self.raw
 
 class Guild():
     def __init__(self, session : SessionType, data : dict):
 
+        self.raw = data
         self.session = session
         
         self.id = int(data["id"])
@@ -63,9 +72,17 @@ class Guild():
         self.member = Member(data) 
 
         return self.member
+    
+    def __str__(self):
+        return self.name 
+    
+    def __dict__(self):
+        return self.raw
 
 class Connection():
     def __init__(self, data : dict):
+
+        self.raw = data
         
         self.type : str = data["type"]
         self.id : str = data["id"]
@@ -74,9 +91,17 @@ class Connection():
         self.friend_sync : bool = data["friend_sync"]
         self.show_activity : bool = data["show_activity"]
         self.id_verified : bool = data["verified"]
+    
+    def __str__(self):
+        return self.name 
+    
+    def __dict__(self):
+        return self.raw
 
 class Member():
     def __init__(self, data : dict):
+
+        self.raw = data
         
         self.user = User(data["user"])
         self.avatar_url : str = f"https://cdn.discordapp.com/avatars/{self.user.id}/{data['avatar']}.webp?size=1024"
@@ -90,6 +115,12 @@ class Member():
         self.roles : typing.List[dict] = data["roles"]
         self.is_mute : bool = data["mute"]
         self.is_deaf : bool = data["deaf"]
+    
+    def __str__(self):
+        return f"{self.user.name}#{self.user.discriminator}"
+    
+    def __dict__(self):
+        return self.raw
 
 class Session():
 
@@ -218,7 +249,6 @@ class Session():
         return self.guilds
     
     async def fetch_connections(self) -> typing.List[Connection]:
-
 
         if not self.scopes.connections:
             raise errors.MissingScope("This method requires the connections scope")

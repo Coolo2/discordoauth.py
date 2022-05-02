@@ -39,8 +39,6 @@ class HTTP():
         # Rate limit handling.
         while retry_after > 0:
             async with session.request(request, self.base + path, data=data, headers=headers, json=json) as r:
-                print(await r.text())
-                print(r.status)
 
                 if r.status == 400 and not tried_refresh:
                     await oauth_session.refresh_access_token()
