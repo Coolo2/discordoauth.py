@@ -1,4 +1,4 @@
-# discordwebhook.py
+# discordoauth.py
 
 [![Downloads](https://pepy.tech/badge/discordoauth-py)](https://pepy.tech/project/discordoauth-py)
 [![Downloads](https://pepy.tech/badge/discordoauth-py/month)](https://pepy.tech/project/discordoauth-py)
