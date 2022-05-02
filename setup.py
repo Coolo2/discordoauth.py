@@ -1,6 +1,7 @@
 from setuptools import setup, Extension
+import discordoauth
 
-version = "0.1.0"
+version = discordoauth.__version__
 
 setup(
   name = 'discordoauth.py',         

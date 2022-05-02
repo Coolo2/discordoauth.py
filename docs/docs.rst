@@ -37,13 +37,15 @@ identify=True - Identifying the user who authorises. Used with Session.fetch_use
 
 guilds=True - Fetches all guilds the user is in. Used with Session.fetch_guilds()
 
-self.connections=True - Fetches all third party connections for the user. Used with Session.fetch_connections()
+connections=True - Fetches all third party connections for the user. Used with Session.fetch_connections()
 
-self.email=True - Additionally provides an e-mail with Session.fetch_user()
+email=True - Additionally provides an e-mail with Session.fetch_user()
 
-self.guilds_join=True - Allows the user to be added to a guild that the bot is in. Used with Session.join_guild(bot_token, guild_id)
+guilds_join=True - Allows the user to be added to a guild that the bot is in. Used with Session.join_guild(bot_token, guild_id)
 
-self.guilds_members_read=True - Gets guild member information (roles, nick, etc) in a guild. Used with Guild.fetch_member()
+guilds_members_read=True - Gets guild member information (roles, nick, etc) in a guild. Used with Guild.fetch_member()
+
+applications_commands=True - Allows the bot to add slash commands to a server. Has no library methods.
 
 Scopes Example 
 *********************
@@ -234,4 +236,15 @@ Joins a guild as the user.
         member = await session.join_guild(bot_token, guild_id, user_id=user_id)
         print(member.nick)
 
+Versions
+-------------------
 
+v0.1.1
+~~~~~~~~~
+
+* Added applicationds_commands scope so that bot invites can be used
+
+v0.1.0
+~~~~~~~~~
+
+* Initial version

@@ -1,6 +1,6 @@
 
 
-VALID_SCOPES = ["bot", "identify", "guilds", "connections", "email", "guilds_join", "guilds_members_read"]
+VALID_SCOPES = ["bot", "identify", "guilds", "connections", "email", "guilds_join", "guilds_members_read", "applications_commands"]
 
 class Scopes():
 
@@ -22,6 +22,7 @@ class Scopes():
         self.email = False
         self.guilds_join = False
         self.guilds_members_read = False
+        self.applications_commands = False
 
         self.scopes = []
         
